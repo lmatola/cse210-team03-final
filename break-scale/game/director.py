@@ -13,7 +13,24 @@ from game.fallingSnow import Snowflake # for snowflake example
         # as mentioned at the top of this program.
 
 class Director(arcade.Window):
+    """A code template for a person who directs the game. The responsibility of 
+    this class of objects is to control the sequence of play.
+    
+    Stereotype:
+        Controller
+
+    Attributes:
+        food (Food): The player's target.
+        score (Score): The current score.
+        player (Player): The player.
+    """
     def __init__(self):
+         """The class constructor.
+        
+        Args:
+            self (Director): an instance of Director.
+        """
+        
         """Set up the game . Call this function to restart the game """
         # call the parent class and set up the window 
         super().__init__(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, constants.SCREEN_TITLE)
@@ -128,6 +145,12 @@ class Director(arcade.Window):
         # and adding the player sprite and the scene sprite list to walls
 
     def on_draw(self):
+        """Renders the given list of actors on the screen.
+
+        Args:
+            actors (list): The actors to render.
+        """
+        
         """render the screen"""
         # clear the screen to the background color
         arcade.start_render()
@@ -182,6 +205,13 @@ class Director(arcade.Window):
         pass
 
     def on_update(self, delta_time):
+        """Updates the important game information for each round of play. In 
+        this case, that means checking for a collision and updating the score.
+
+        Args:
+            self (Director): An instance of Director.
+        """
+        
         """movement and game logic"""
         #position the camera
         # snowflake example 
